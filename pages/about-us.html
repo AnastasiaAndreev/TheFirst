@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../img/favicon-new.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First - О нас</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/about-us.css">
+    <script src="../js/burger-menu.js" defer></script>
+    <script src="../js/demo-sheets.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.updateHeaderNavigation) {
+                updateHeaderNavigation();
+            }
+        });
+    </script>
+    <script src="../js/booking.js" defer></script>
+    <link rel="stylesheet" href="../css/booking.css">
+</head>
+<body>
+<header>
+    <div class="wrapper header_wrap">
+        <h2><a href="../index.html">The First</a></h2>
+        <nav class="header_nav">
+            <ul>
+                <li>
+                    <a href="../index.html">Главная</a>
+                </li>
+                <li>
+                    <a href="../pages/menu.html">Меню</a>
+                </li>
+                <li>
+                    <a href="../pages/about-us.html">О нас</a>
+                </li>
+                <li>
+                    <a href="../pages/contacts.html">Контакты</a>
+                </li>
+                <li id="adminDatabaseLink" style="display: none;">
+                    <a href="admin-database.html">База данных</a>
+                </li>
+                <li id="userAccountLink" style="display: none;">
+                    <a href="login.html">Аккаунт</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="user-status" id="userStatus" style="display: none;">
+            <span id="userNameDisplay"></span>
+            <button class="logout-btn" id="headerLogoutBtn">Выйти</button>
+        </div>
+        <div class="user-status" id="notLoggedInStatus" style="display: flex;">
+            <span>Не авторизован</span>
+            <a href="login.html" class="login-link">Войти</a>
+        </div>
+
+        <div class="burger_menu">
+            <div class="burger_menu_header">
+                <h2><a href="../index.html">The First</a></h2>
+                <button class="header_burger" onclick="closeBurgerMenuClick()">
+                    <img src="../img/cross.svg" alt="cross" title="cross" class="burger-close">
+                </button>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="../index.html">Главная</a>
+                    </li>
+                    <li>
+                        <a href="../pages/menu.html">Меню</a>
+                    </li>
+                    <li>
+                        <a href="../pages/about-us.html">О нас</a>
+                    </li>
+                    <li>
+                        <a href="../pages/contacts.html">Контакты</a>
+                    </li>
+                    <li id="adminDatabaseLinkMobile" style="display: none;">
+                        <a href="admin-database.html">База данных</a>
+                    </li>
+                    <li id="userAccountLinkMobile" style="display: none;">
+                        <a href="login.html">Аккаунт</a>
+                    </li>
+                </ul>
+                <div class="user-status-mobile" id="userStatusMobile" style="display: none;">
+                    <span id="userNameDisplayMobile"></span>
+                    <button class="logout-btn" id="headerLogoutBtnMobile">Выйти</button>
+                </div>
+                <div class="user-status-mobile" id="notLoggedInStatusMobile" style="display: flex;">
+                    <span>Не авторизован</span>
+                    <a href="login.html" class="login-link">Войти</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="overlay"></div>
+
+        <button class="header_burger" onclick="burgerMenuClick()">
+            <img src="../img/burger.svg" alt="burger">
+        </button>
+    </div>
+</header>
+<main>
+    <section class="about_us">
+        <div class="wrapper about_us_wrap">
+            <h2>О нас</h2>
+            <span>«The First» — атмосферный бар на Kropotkina 91A: авторские коктейли, кальяны, консоли для игр и VIP-комната с караоке. Мы создаём вечер, к которому хочется вернуться.</span>
+            
+            <div class="about_us_video">
+                <video autoplay muted loop playsinline>
+                    <source src="../images and video for bar/video of bar.MP4" type="video/mp4">
+                    <source src="../images and video for bar/main video.MP4" type="video/mp4">
+                    <source src="../images and video for bar/video of clients.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
+            <div class="about_us_text">
+                <span>У нас вы найдёте разные виды алкоголя, профессионально приготовленные коктейли, большие экраны и приставки для вечеров с друзьями. Для камерных компаний — отдельный VIP-зал с караоке.</span>
+            </div>
+        </div>
+    </section>
+    <section class="clients">
+        <div class="wrapper clients_wrap">
+            <h2>Отзывы наших клиентов</h2>
+            <div class="clients_container" id="reviewsContainer">
+                <div id="reviewsDisplay">
+                    <!-- Reviews will be loaded dynamically here -->
+                </div>
+            </div>
+            <div class="review-form">
+                <h3>Оставить отзыв</h3>
+                <form id="reviewForm">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <textarea placeholder="Ваш отзыв" required maxlength="200"></textarea>
+                    <div class="character-counter">0 / 200</div>
+                    <button type="submit" class="button primary">Отправить отзыв</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="wrapper footer_wrap">
+        <h2>The First</h2>
+        <div class="footer_info">
+            <span>Минск, Кропоткина 91А</span>
+            <span>Телефон: +375 (29) 699-98-88</span>
+            <span>УНП: 192764563</span>
+            <span>Индекс: 220002</span>
+        </div>
+        <div class="footer_socials">
+            <a href="https://www.instagram.com/first_kropotkina?igsh=MTJ5ODQ0MnRvdnlzZA==" target="_blank" rel="noopener">
+                <img src="../img/instagram.svg" alt="instagram">
+            </a>
+            <span class="instagram-username">first_kropotkina</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+let currentReview = 0;
+let displayedReviews = [];
+
+// Load and display reviews
+function loadDisplayedReviews() {
+    const allReviews = JSON.parse(localStorage.getItem('demo_reviews') || '[]');
+    displayedReviews = allReviews.filter(review => review.approved && review.displayed);
+    
+    const reviewsDisplay = document.getElementById('reviewsDisplay');
+    
+    if (displayedReviews.length === 0) {
+        // Show no reviews message if no approved reviews
+        reviewsDisplay.innerHTML = `
+            <div class="no-reviews-message">
+                <h3>Пока нет отзывов</h3>
+                <p>Станьте первым, кто оставит отзыв о нашем заведении!</p>
+            </div>
+        `;
+    } else {
+        // Show approved reviews (only text, no photos)
+        reviewsDisplay.innerHTML = displayedReviews.map((review, index) => `
+            <div class="clients_item ${index === 0 ? 'active' : ''}" id="review${index + 1}">
+                <div class="clients_item_text">
+                    <h3>${review.name}</h3>
+                    <span>${review.review}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    currentReview = 0;
+}
+
+function showReview(index) {
+    const reviews = document.querySelectorAll('.clients_item');
+    reviews.forEach((review, i) => {
+        if (i === index) {
+            review.classList.add('active');
+        } else {
+            review.classList.remove('active');
+        }
+    });
+}
+
+
+// Handle review form submission
+document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const name = this.querySelector('input[type="text"]').value;
+    const review = this.querySelector('textarea').value;
+    
+    if (!name || !review) {
+        alert('Пожалуйста, заполните все поля.');
+        return;
+    }
+    
+    // Save review to localStorage
+    const reviews = JSON.parse(localStorage.getItem('demo_reviews') || '[]');
+    const newReview = {
+        id: Date.now(),
+        name: name,
+        review: review,
+        timestamp: new Date().toISOString(),
+        approved: false,
+        displayed: false
+    };
+    
+    reviews.push(newReview);
+    localStorage.setItem('demo_reviews', JSON.stringify(reviews));
+    
+    // Show success message directly on the site
+    showReviewSuccessMessage();
+    this.reset();
+});
+
+// Show success message for review submission
+function showReviewSuccessMessage() {
+    // Remove any existing success messages
+    const existingMessage = document.querySelector('.review-success-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    // Create success message
+    const successMessage = document.createElement('div');
+    successMessage.className = 'review-success-message';
+    successMessage.innerHTML = `
+        <div class="success-content">
+            <h3>Спасибо за ваш отзыв!</h3>
+            <p>Мы обязательно его рассмотрим и опубликуем после модерации.</p>
+        </div>
+    `;
+    
+    // Insert after the review form
+    const reviewForm = document.getElementById('reviewForm');
+    reviewForm.parentNode.insertBefore(successMessage, reviewForm.nextSibling);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        if (successMessage.parentElement) {
+            successMessage.remove();
+        }
+    }, 5000);
+}
+
+// Initialize reviews on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadDisplayedReviews();
+    
+    // Character counter functionality
+    const textarea = document.querySelector('textarea');
+    const counter = document.querySelector('.character-counter');
+    
+    if (textarea && counter) {
+        textarea.addEventListener('input', function() {
+            const currentLength = this.value.length;
+            const maxLength = this.getAttribute('maxlength');
+            counter.textContent = `${currentLength} / ${maxLength}`;
+        });
+    }
+});
+
+
+
+// Video loading and debugging
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.querySelector('.about_us_video video');
+    if (video) {
+        console.log('Video element found');
+        
+        video.addEventListener('loadstart', function() {
+            console.log('Video loading started');
+        });
+        
+        video.addEventListener('loadeddata', function() {
+            console.log('Video data loaded successfully');
+        });
+        
+        video.addEventListener('canplay', function() {
+            console.log('Video can play');
+        });
+        
+        video.addEventListener('error', function(e) {
+            console.log('Video error:', e);
+            console.log('Error details:', video.error);
+        });
+        
+        // Force load the video
+        video.load();
+    } else {
+        console.log('Video element not found');
+    }
+});
+
+
+// Active navigation highlighting
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.header_nav a');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // Normalize paths for comparison
+        const normalizedCurrentPage = currentPage.replace(/\/$/, '') || '/';
+        const normalizedLinkPath = linkPath.replace(/^\.\.\//, '').replace(/^\.\//, '');
+        
+        // Check if current page matches the link
+        let isActive = false;
+        
+        // For main page (index.html)
+        if ((normalizedCurrentPage === '/' || normalizedCurrentPage.endsWith('index.html')) && 
+            (normalizedLinkPath === 'index.html' || normalizedLinkPath === '')) {
+            isActive = true;
+        }
+        // For other pages
+        else if (normalizedCurrentPage.includes(normalizedLinkPath) && normalizedLinkPath !== 'index.html') {
+            isActive = true;
+        }
+        
+        if (isActive) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

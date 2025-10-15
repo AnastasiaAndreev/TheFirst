@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="../img/favicon-new.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First - Меню</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <link rel="stylesheet" href="../css/menu.css">
+    <script src="../js/burger-menu.js" defer></script>
+    <script src="../js/demo-sheets.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.updateHeaderNavigation) {
+                updateHeaderNavigation();
+            }
+        });
+    </script>
+    <script src="../js/booking.js" defer></script>
+    <link rel="stylesheet" href="../css/booking.css">
+</head>
+<body>
+<header>
+    <div class="wrapper header_wrap">
+        <h2><a href="../index.html">The First</a></h2>
+        <nav class="header_nav">
+            <ul>
+                <li>
+                    <a href="../index.html">Главная</a>
+                </li>
+                <li>
+                    <a href="../pages/menu.html">Меню</a>
+                </li>
+                <li>
+                    <a href="../pages/about-us.html">О нас</a>
+                </li>
+                <li>
+                    <a href="../pages/contacts.html">Контакты</a>
+                </li>
+                <li id="adminDatabaseLink" style="display: none;">
+                    <a href="admin-database.html">База данных</a>
+                </li>
+                <li id="userAccountLink" style="display: none;">
+                    <a href="login.html">Аккаунт</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="user-status" id="userStatus" style="display: none;">
+            <span id="userNameDisplay"></span>
+            <button class="logout-btn" id="headerLogoutBtn">Выйти</button>
+        </div>
+        <div class="user-status" id="notLoggedInStatus" style="display: flex;">
+            <span>Не авторизован</span>
+            <a href="login.html" class="login-link">Войти</a>
+        </div>
+
+        <div class="burger_menu">
+            <div class="burger_menu_header">
+                <h2><a href="../index.html">The First</a></h2>
+                <button class="header_burger" onclick="closeBurgerMenuClick()">
+                    <img src="../img/cross.svg" alt="cross" title="cross" class="burger-close">
+                </button>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="../index.html">Главная</a>
+                    </li>
+                    <li>
+                        <a href="../pages/menu.html">Меню</a>
+                    </li>
+                    <li>
+                        <a href="../pages/about-us.html">О нас</a>
+                    </li>
+                    <li>
+                        <a href="../pages/contacts.html">Контакты</a>
+                    </li>
+                    <li id="adminDatabaseLinkMobile" style="display: none;">
+                        <a href="admin-database.html">База данных</a>
+                    </li>
+                    <li id="userAccountLinkMobile" style="display: none;">
+                        <a href="login.html">Аккаунт</a>
+                    </li>
+                </ul>
+                <div class="user-status-mobile" id="userStatusMobile" style="display: none;">
+                    <span id="userNameDisplayMobile"></span>
+                    <button class="logout-btn" id="headerLogoutBtnMobile">Выйти</button>
+                </div>
+                <div class="user-status-mobile" id="notLoggedInStatusMobile" style="display: flex;">
+                    <span>Не авторизован</span>
+                    <a href="login.html" class="login-link">Войти</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="overlay"></div>
+
+        <button class="header_burger" onclick="burgerMenuClick()">
+            <img src="../img/burger.svg" alt="burger">
+        </button>
+    </div>
+</header>
+<main>
+    <div class="wrapper menu_wrap">
+        <h1>Меню</h1>
+        
+        <!-- Quick Navigation Buttons -->
+        <div class="quick-nav">
+            <button class="nav-btn" onclick="scrollToSection('hookahs')">Кальяны</button>
+            <button class="nav-btn" onclick="scrollToSection('alcohol')">Алкоголь</button>
+            <button class="nav-btn" onclick="scrollToSection('consoles')">Игровые приставки</button>
+            <button class="nav-btn" onclick="scrollToSection('snacks')">Закуски</button>
+        </div>
+        
+        <!-- Hookahs Section -->
+        <section id="hookahs" class="menu-section">
+            <h2>Кальяны</h2>
+            <div class="menu_grid">
+                <div class="menu_item" onclick="showDescription('red-forest')">
+                    <img src="../img/cookie.jpg" alt="hookah">
+                    <div>
+                        <h3>RED FOREST</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('spicy-night')">
+                    <img src="../img/cookie.jpg" alt="hookah">
+                    <div>
+                        <h3>SPICY NIGHT</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('mint-breeze')">
+                    <img src="../img/cookie.jpg" alt="hookah">
+                    <div>
+                        <h3>MINT BREEZE</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('sweet-dream')">
+                    <img src="../img/cookie.jpg" alt="hookah">
+                    <div>
+                        <h3>SWEET DREAM</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('cool-mint')">
+                    <img src="../img/cookie.jpg" alt="hookah">
+                    <div>
+                        <h3>COOL MINT</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('fruit-mix')">
+                    <img src="../img/cookie.jpg" alt="hookah">
+                    <div>
+                        <h3>FRUIT MIX</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alcohol Section -->
+        <section id="alcohol" class="menu-section">
+            <h2>Алкоголь</h2>
+            <div class="menu_grid">
+                <div class="menu_item" onclick="showDescription('mohito')">
+                    <img src="../img/cookie.jpg" alt="alcohol">
+                    <div>
+                        <h3>Мохито</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('margarita')">
+                    <img src="../img/cookie.jpg" alt="alcohol">
+                    <div>
+                        <h3>Маргарита</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('negroni')">
+                    <img src="../img/cookie.jpg" alt="alcohol">
+                    <div>
+                        <h3>Негрони</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('gin-tonic')">
+                    <img src="../img/cookie.jpg" alt="alcohol">
+                    <div>
+                        <h3>Джин-тоник</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('whiskey-cola')">
+                    <img src="../img/cookie.jpg" alt="alcohol">
+                    <div>
+                        <h3>Виски кола</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('beer')">
+                    <img src="../img/cookie.jpg" alt="alcohol">
+                    <div>
+                        <h3>Пиво</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consoles Section -->
+        <section id="consoles" class="menu-section">
+            <h2>Игровые приставки</h2>
+            <div class="menu_grid">
+                <div class="menu_item" onclick="showDescription('ps5')">
+                    <img src="../img/cookie.jpg" alt="console">
+                    <div>
+                        <h3>PlayStation 5</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('xbox')">
+                    <img src="../img/cookie.jpg" alt="console">
+                    <div>
+                        <h3>Xbox Series X</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('switch')">
+                    <img src="../img/cookie.jpg" alt="console">
+                    <div>
+                        <h3>Nintendo Switch</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('board-games')">
+                    <img src="../img/cookie.jpg" alt="console">
+                    <div>
+                        <h3>Настольные игры</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('darts')">
+                    <img src="../img/cookie.jpg" alt="console">
+                    <div>
+                        <h3>Дартс</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('billiards')">
+                    <img src="../img/cookie.jpg" alt="console">
+                    <h3>Бильярд</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Snacks Section -->
+        <section id="snacks" class="menu-section">
+            <h2>Закуски</h2>
+            <div class="menu_grid">
+                <div class="menu_item" onclick="showDescription('chips')">
+                    <img src="../img/cookie.jpg" alt="snack">
+                    <div>
+                        <h3>Чипсы с соусами</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('nuts')">
+                    <img src="../img/cookie.jpg" alt="snack">
+                    <div>
+                        <h3>Орешки</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('cheese-plate')">
+                    <img src="../img/cookie.jpg" alt="snack">
+                    <div>
+                        <h3>Сырная тарелка</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('meat-plate')">
+                    <img src="../img/cookie.jpg" alt="snack">
+                    <div>
+                        <h3>Мясная нарезка</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('fruit-plate')">
+                    <img src="../img/cookie.jpg" alt="snack">
+                    <div>
+                        <h3>Фруктовая тарелка</h3>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showDescription('pizza')">
+                    <img src="../img/cookie.jpg" alt="snack">
+                    <div>
+                        <h3>Пицца</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Description Modal -->
+<div id="descriptionModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-image" id="modalImage"></div>
+        <div class="modal-text">
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <div class="modal-price" id="modalPrice"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function showDescription(productId) {
+    const modal = document.getElementById('descriptionModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalImage = document.getElementById('modalImage');
+    const modalPrice = document.getElementById('modalPrice');
+    
+    const descriptions = {
+        'red-forest': {
+            title: 'RED FOREST',
+            description: 'Авторский микс с нотками лесных ягод, ванили и легкой мятой. Идеально для вечерних посиделок.',
+            price: '25 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'spicy-night': {
+            title: 'SPICY NIGHT',
+            description: 'Смелый микс с экзотическими специями, цитрусовыми и карамелью. Для любителей ярких вкусов.',
+            price: '27 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'mint-breeze': {
+            title: 'MINT BREEZE',
+            description: 'Освежающий микс с мятой, лаймом и легкими цветочными нотками. Отлично подходит для начала вечера.',
+            price: '23 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'sweet-dream': {
+            title: 'SWEET DREAM',
+            description: 'Нежный микс с ванилью, карамелью и легкими фруктовыми нотками. Сладкий сон в каждой затяжке.',
+            price: '26 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'cool-mint': {
+            title: 'COOL MINT',
+            description: 'Освежающий микс с мятой и ментолом. Идеально для жарких вечеров и освежения.',
+            price: '24 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'fruit-mix': {
+            title: 'FRUIT MIX',
+            description: 'Яркий микс с экзотическими фруктами: манго, ананас, клубника. Фруктовый праздник.',
+            price: '28 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'mohito': {
+            title: 'Мохито',
+            description: 'Классический коктейль с белым ромом, лаймом, мятой и содовой. Освежающий вкус для жарких вечеров.',
+            price: '12 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'margarita': {
+            title: 'Маргарита',
+            description: 'Мексиканский коктейль с текилой, лаймовым соком и апельсиновым ликером. Подается с солью на краю бокала.',
+            price: '15 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'negroni': {
+            title: 'Негрони',
+            description: 'Итальянский коктейль с джином, вермутом и биттером. Богатый и сложный вкус для ценителей.',
+            price: '18 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'gin-tonic': {
+            title: 'Джин-тоник',
+            description: 'Классический коктейль с джином, тоником и долькой лайма. Освежающий и элегантный напиток.',
+            price: '10 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'whiskey-cola': {
+            title: 'Виски кола',
+            description: 'Популярный коктейль с виски и колой. Сладкий и крепкий напиток для вечерних посиделок.',
+            price: '14 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'beer': {
+            title: 'Пиво',
+            description: 'Свежее разливное пиво различных сортов. От легких лагеров до крепких стаутов.',
+            price: '8 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'ps5': {
+            title: 'PlayStation 5',
+            description: 'Современная игровая приставка с выбором популярных игр. Идеально для компании друзей.',
+            price: '20 р./час',
+            image: '../images and video for bar/product.jpg'
+        },
+        'xbox': {
+            title: 'Xbox Series X',
+            description: 'Мощная консоль от Microsoft с отличной графикой и большей библиотекой игр.',
+            price: '20 р./час',
+            image: '../images and video for bar/product.jpg'
+        },
+        'switch': {
+            title: 'Nintendo Switch',
+            description: 'Портативная консоль с уникальными играми. Отлично подходит для веселых вечеринок.',
+            price: '15 р./час',
+            image: '../images and video for bar/product.jpg'
+        },
+        'board-games': {
+            title: 'Настольные игры',
+            description: 'Коллекция популярных настольных игр: Мафия, Уно, Дженга и другие.',
+            price: '5 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'darts': {
+            title: 'Дартс',
+            description: 'Классическая игра в дартс для соревнований между гостями. Безопасные дротики.',
+            price: '3 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'billiards': {
+            title: 'Бильярд',
+            description: 'Профессиональный бильярдный стол для любителей этой классической игры.',
+            price: '25 р./час',
+            image: '../images and video for bar/product.jpg'
+        },
+        'chips': {
+            title: 'Чипсы с соусами',
+            description: 'Хрустящие чипсы с выбором из трех соусов: сырный, чесночный и барбекю. Идеальная закуска к напиткам.',
+            price: '6 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'nuts': {
+            title: 'Орешки',
+            description: 'Ассорти из жареных орехов: миндаль, кешью, фундук. Подается в красивой подарочной упаковке.',
+            price: '8 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'cheese-plate': {
+            title: 'Сырная тарелка',
+            description: 'Ассорти из элитных сыров с виноградом, орехами и медом. Для истинных ценителей.',
+            price: '18 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'meat-plate': {
+            title: 'Мясная нарезка',
+            description: 'Ассорти из различных видов мяса: прошутто, салями, брезаола. Подается с горчицей.',
+            price: '22 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'fruit-plate': {
+            title: 'Фруктовая тарелка',
+            description: 'Свежие сезонные фрукты: виноград, яблоки, груши, апельсины. Освежающая закуска.',
+            price: '12 р.',
+            image: '../images and video for bar/product.jpg'
+        },
+        'pizza': {
+            title: 'Пицца',
+            description: 'Классическая итальянская пицца с томатным соусом, моцареллой и базиликом.',
+            price: '16 р.',
+            image: '../images and video for bar/product.jpg'
+        }
+    };
+    
+    if (descriptions[productId]) {
+        modalTitle.textContent = descriptions[productId].title;
+        modalDescription.textContent = descriptions[productId].description;
+        modalImage.style.backgroundImage = `url('${descriptions[productId].image}')`;
+        modalPrice.textContent = descriptions[productId].price;
+        modal.style.display = 'block';
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('descriptionModal');
+    modal.style.display = 'none';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('descriptionModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+
+<footer>
+    <div class="wrapper footer_wrap">
+        <h2>The First</h2>
+        <div class="footer_info">
+            <span>Минск, Кропоткина 91А</span>
+            <span>Телефон: +375 (29) 699-98-88</span>
+            <span>УНП: 192764563</span>
+            <span>Индекс: 220002</span>
+        </div>
+        <div class="footer_socials">
+            <a href="https://www.instagram.com/first_kropotkina?igsh=MTJ5ODQ0MnRvdnlzZA==" target="_blank" rel="noopener">
+                <img src="../img/instagram.svg" alt="instagram">
+            </a>
+            <span class="instagram-username">first_kropotkina</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Active navigation highlighting
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.header_nav a');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // Normalize paths for comparison
+        const normalizedCurrentPage = currentPage.replace(/\/$/, '') || '/';
+        const normalizedLinkPath = linkPath.replace(/^\.\.\//, '').replace(/^\.\//, '');
+        
+        // Check if current page matches the link
+        let isActive = false;
+        
+        // For main page (index.html)
+        if ((normalizedCurrentPage === '/' || normalizedCurrentPage.endsWith('index.html')) && 
+            (normalizedLinkPath === 'index.html' || normalizedLinkPath === '')) {
+            isActive = true;
+        }
+        // For other pages
+        else if (normalizedCurrentPage.includes(normalizedLinkPath) && normalizedLinkPath !== 'index.html') {
+            isActive = true;
+        }
+        
+        if (isActive) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>

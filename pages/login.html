@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First - Аккаунт</title>
+    <link rel="icon" type="image/svg+xml" href="../img/favicon-new.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/input.css">
+    <script src="../js/burger-menu.js" defer></script>
+    <script src="../js/demo-sheets.js" defer></script>
+    <script src="../js/auth.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.updateHeaderNavigation) {
+                updateHeaderNavigation();
+            }
+        });
+    </script>
+</head>
+<body class="login-page">
+<header>
+    <div class="wrapper header_wrap">
+        <h2><a href="../index.html">The First</a></h2>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="../pages/menu.html">Меню</a></li>
+                <li><a href="../pages/about-us.html">О нас</a></li>
+                <li><a href="../pages/contacts.html">Контакты</a></li>
+                <li id="accountLink"><a href="../pages/login.html">Аккаунт</a></li>
+            </ul>
+        </nav>
+
+        <div class="burger_menu">
+            <div class="burger_menu_header">
+                <h2><a href="../index.html">The First</a></h2>
+                <button class="header_burger" onclick="closeBurgerMenuClick()">
+                    <img src="../img/cross.svg" alt="cross" title="cross" class="burger-close">
+                </button>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../index.html">Главная</a></li>
+                    <li><a href="../pages/menu.html">Меню</a></li>
+                    <li><a href="../pages/about-us.html">О нас</a></li>
+                    <li><a href="../pages/contacts.html">Контакты</a></li>
+                    <li id="accountLinkMobile"><a href="../pages/login.html">Аккаунт</a></li>
+                </ul>
+                <div class="user-status-mobile" id="userStatusMobile" style="display: none;">
+                    <span id="userNameDisplayMobile"></span>
+                    <button class="logout-btn" id="headerLogoutBtnMobile">Выйти</button>
+                </div>
+                <div class="user-status-mobile" id="notLoggedInStatusMobile" style="display: flex;">
+                    <span>Не авторизован</span>
+                    <a href="login.html" class="login-link">Войти</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="user-status" id="userStatus" style="display: none;">
+            <span id="userNameDisplay"></span>
+            <button class="logout-btn" id="headerLogoutBtn">Выйти</button>
+        </div>
+        <div class="user-status" id="notLoggedInStatus" style="display: flex;">
+            <span>Не авторизован</span>
+            <a href="login.html" class="login-link">Войти</a>
+        </div>
+
+        <div class="overlay"></div>
+
+        <button class="header_burger" onclick="burgerMenuClick()">
+            <img src="../img/burger.svg" alt="burger">
+        </button>
+    </div>
+  </header>
+
+<main>
+  <section class="wrapper" style="max-width:560px; padding: 3rem 0; display:flex; flex-direction:column; gap:1.5rem;">
+    <h1>Аккаунт</h1>
+    <div id="authStatus" style="display:none; background: var(--pink2); border:1px solid var(--light-gray); border-radius:1rem; padding:1rem;">
+      <h3 style="margin-bottom:0.5rem;">Здравствуйте, <span id="userName"></span></h3>
+      <div style="display:flex; flex-direction:column; gap:0.5rem;">
+        <span>Телефон: <b id="userPhone"></b></span>
+        <span>Скидка: <b id="userDiscount">0%</b></span>
+        <span>Бронирований: <b id="userBookings">0</b></span>
+      </div>
+      <div style="display:flex; gap:0.75rem; margin-top:1rem;">
+        <a href="../index.html" class="button">На главную</a>
+        <button class="button" id="logoutBtn">Выйти</button>
+      </div>
+    </div>
+
+    <form id="authForm" class="booking-form" style="background: var(--pink2); border:1px solid var(--light-gray); border-radius:1rem; padding:1.5rem; display:flex; flex-direction:column; gap:1rem;">
+      <div style="display: grid; grid-template-columns: 100px 1fr; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+        <label>Имя</label>
+        <input type="text" name="name" class="input" required>
+      </div>
+      <div style="display: grid; grid-template-columns: 100px 1fr; gap: 1rem; align-items: center; margin-bottom: 0.75rem;">
+        <label>Телефон</label>
+        <div class="phone-input-container">
+          <input type="tel" name="phone" class="input phone-input" value="+375" required>
+          <span class="phone-placeholder">(29) 000-00-00</span>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 100px 1fr; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+        <label>Пароль</label>
+        <div class="password-input-container">
+          <input type="password" name="password" class="input password-input" id="passwordInput" 
+                 minlength="8" maxlength="64" pattern="^(?=.*\d)[~!?@#$%^&*_\-+()\[\]{}></\\|"'.:,]{0,}[a-zA-Z0-9~!?@#$%^&*_\-+()\[\]{}></\\|"'.:,]{8,64}$" 
+                 placeholder="Invalid password." required>
+          <button type="button" class="password-toggle-btn" id="passwordToggle" onclick="togglePasswordVisibility()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div style="grid-column: 2; font-size: 0.8rem; color: var(--gray); margin-top: -0.5rem; margin-bottom: 1rem;">
+        <div>• Не менее 8 символов</div>
+        <div>• Хотя бы 1 цифра</div>
+      </div>
+      <div style="display:flex; gap:0.75rem; justify-content: center;">
+        <button type="submit" class="button primary" id="registerBtn">Зарегистрироваться</button>
+        <button type="button" class="button" id="loginBtn">Войти</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrapper footer_wrap">
+    <h2>The First</h2>
+    <div class="footer_info">
+      <span>Минск, Кропоткина 91А</span>
+      <span>Телефон: +375 (29) 699-98-88</span>
+      <span>УНП: 192764563</span>
+      <span>Индекс: 220002</span>
+    </div>
+    <div class="footer_socials">
+      <a href="https://www.instagram.com/first_kropotkina?igsh=MTJ5ODQ0MnRvdnlzZA==" target="_blank" rel="noopener">
+        <img src="../img/instagram.svg" alt="instagram">
+      </a>
+      <span class="instagram-username">first_kropotkina</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Active navigation highlighting
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.header_nav a');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // Normalize paths for comparison
+        const normalizedCurrentPage = currentPage.replace(/\/$/, '') || '/';
+        const normalizedLinkPath = linkPath.replace(/^\.\.\//, '').replace(/^\.\//, '');
+        
+        // Check if current page matches the link
+        let isActive = false;
+        
+        // For main page (index.html)
+        if ((normalizedCurrentPage === '/' || normalizedCurrentPage.endsWith('index.html')) && 
+            (normalizedLinkPath === 'index.html' || normalizedLinkPath === '')) {
+            isActive = true;
+        }
+        // For other pages
+        else if (normalizedCurrentPage.includes(normalizedLinkPath) && normalizedLinkPath !== 'index.html') {
+            isActive = true;
+        }
+        
+        if (isActive) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
+

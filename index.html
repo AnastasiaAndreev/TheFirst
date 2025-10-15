@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="img/favicon-new.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First — Hookah Bar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/input.css">
+    <script src="js/burger-menu.js" defer></script>
+    <script src="js/demo-sheets.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.updateHeaderNavigation) {
+                updateHeaderNavigation();
+            }
+        });
+    </script>
+    <script src="js/booking.js" defer></script>
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<header>
+    <div class="wrapper header_wrap">
+        <h2><a href="index.html">The First</a></h2>
+        <nav class="header_nav">
+            <ul>
+                <li>
+                    <a href="index.html">Главная</a>
+                </li>
+                <li>
+                    <a href="pages/menu.html">Меню</a>
+                </li>
+                <li>
+                    <a href="pages/about-us.html">О нас</a>
+                </li>
+                <li>
+                    <a href="pages/contacts.html">Контакты</a>
+                </li>
+                <li id="adminDatabaseLink" style="display: none;">
+                    <a href="pages/admin-database.html">База данных</a>
+                </li>
+                <li id="userAccountLink" style="display: none;">
+                    <a href="pages/login.html">Аккаунт</a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="user-status" id="userStatus" style="display: none;">
+            <span id="userNameDisplay"></span>
+            <button class="logout-btn" id="headerLogoutBtn">Выйти</button>
+        </div>
+        <div class="user-status" id="notLoggedInStatus" style="display: flex;">
+            <span>Не авторизован</span>
+            <a href="pages/login.html" class="login-link">Войти</a>
+        </div>
+
+        <div class="burger_menu">
+            <div class="burger_menu_header">
+                <h2><a href="index.html">The First</a></h2>
+                <button class="header_burger" onclick="closeBurgerMenuClick()">
+                    <img src="img/cross.svg" alt="cross" title="cross" class="burger-close">
+                </button>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="pages/menu.html">Меню</a>
+                    </li>
+                    <li>
+                        <a href="pages/about-us.html">О нас</a>
+                    </li>
+                    <li>
+                        <a href="pages/contacts.html">Контакты</a>
+                    </li>
+                    <li id="adminDatabaseLinkMobile" style="display: none;">
+                        <a href="pages/admin-database.html">База данных</a>
+                    </li>
+                    <li id="userAccountLinkMobile" style="display: none;">
+                        <a href="pages/login.html">Аккаунт</a>
+                    </li>
+                </ul>
+                <div class="user-status-mobile" id="userStatusMobile" style="display: none;">
+                    <span id="userNameDisplayMobile"></span>
+                    <button class="logout-btn" id="headerLogoutBtnMobile">Выйти</button>
+                </div>
+                <div class="user-status-mobile" id="notLoggedInStatusMobile" style="display: flex;">
+                    <span>Не авторизован</span>
+                    <a href="pages/login.html" class="login-link">Войти</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="overlay"></div>
+
+        <button class="header_burger" onclick="burgerMenuClick()">
+            <img src="img/burger.svg" alt="burger">
+        </button>
+    </div>
+</header>
+<main>
+    <section class="intro">
+        <div class="intro_media">
+            <video class="intro_video" autoplay muted loop playsinline poster="images and video for bar/main photo.jpg">
+                <source src="images and video for bar/main video.MP4" type="video/mp4">
+            </video>
+            <div class="intro_overlay"></div>
+        </div>
+        <div class="intro_text">
+            <img class="intro_logo" src="images and video for bar/logo.jpg" alt="logo">
+            <h1>Атмосферный кальян-бар</h1>
+            <h2>50+ вкусов, авторские миксы, коктейли и живая музыка</h2>
+            <button class="button primary booking-btn">Забронировать стол</button>
+        </div>
+    </section>
+    <section class="features">
+        <div class="wrapper features_wrap">
+            <h3>Почему у нас нравится</h3>
+            <div class="features_container">
+                <div class="feature_item">
+                    <h2>50+ вкусов</h2>
+                    <span>Классика и авторские миксы для любой компании</span>
+                </div>
+                <div class="feature_item">
+                    <h2>DJ и вечеринки</h2>
+                    <span>Выходные проходят под лучшие сеты</span>
+                </div>
+                <div class="feature_item">
+                    <h2>Коктейли</h2>
+                    <span>Бар с классическими и авторскими напитками</span>
+                </div>
+                <div class="feature_item">
+                    <h2>Цены</h2>
+                    <span>Честно и прозрачно, без переплат</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slider">
+        <div class="wrapper slider_wrap">
+            <h2><span>Новинка</span> Авторские кальяны недели</h2>
+            <div class="slider_container">
+                <button class="slider-arrow-btn left-arrow" onclick="previousHookah()">
+                    <img src="img/chevron-left.svg" alt="chevron-left">
+                </button>
+                <div class="menu_item" onclick="showHookahModal('red-forest')" style="cursor: pointer;">
+                    <img src="images and video for bar/product.jpg" alt="hookah">
+                    <div>
+                        <h3>RED FOREST</h3>
+                        <span>25 р.</span>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showHookahModal('spicy-night')" style="cursor: pointer;">
+                    <img src="images and video for bar/product.jpg" alt="hookah">
+                    <div>
+                        <h3>SPICY NIGHT</h3>
+                        <span>27 р.</span>
+                    </div>
+                </div>
+                <div class="menu_item" onclick="showHookahModal('mint-breeze')" style="cursor: pointer;">
+                    <img src="images and video for bar/product.jpg" alt="hookah">
+                    <div>
+                        <h3>MINT BREEZE</h3>
+                        <span>23 р.</span>
+                    </div>
+                </div>
+                <button class="slider-arrow-btn right-arrow" onclick="nextHookah()">
+                    <img src="img/chevron-right.svg" alt="chevron-right">
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Hookah Modal -->
+<div id="hookahModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeHookahModal()">&times;</span>
+        <div class="modal-image" id="hookahModalImage"></div>
+        <div class="modal-text">
+            <h2 id="hookahModalTitle"></h2>
+            <p id="hookahModalDescription"></p>
+            <div class="modal-price" id="hookahModalPrice"></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="wrapper footer_wrap">
+        <h2>The First</h2>
+        <div class="footer_info">
+            <span>Минск, Кропоткина 91А</span>
+            <span>Телефон: +375 (29) 699-98-88</span>
+            <span>УНП: 192764563</span>
+            <span>Индекс: 220002</span>
+        </div>
+        <div class="footer_socials">
+            <a href="https://www.instagram.com/first_kropotkina?igsh=MTJ5ODQ0MnRvdnlzZA==" target="_blank" rel="noopener">
+                <img src="img/instagram.svg" alt="instagram">
+            </a>
+            <span class="instagram-username">first_kropotkina</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Active navigation highlighting
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.header_nav a');
+    
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        
+        // Normalize paths for comparison
+        const normalizedCurrentPage = currentPage.replace(/\/$/, '') || '/';
+        const normalizedLinkPath = linkPath.replace(/^\.\.\//, '').replace(/^\.\//, '');
+        
+        // Check if current page matches the link
+        let isActive = false;
+        
+        // For main page (index.html)
+        if ((normalizedCurrentPage === '/' || normalizedCurrentPage.endsWith('index.html')) && 
+            (normalizedLinkPath === 'index.html' || normalizedLinkPath === '')) {
+            isActive = true;
+        }
+        // For other pages
+        else if (normalizedCurrentPage.includes(normalizedLinkPath) && normalizedLinkPath !== 'index.html') {
+            isActive = true;
+        }
+        
+        if (isActive) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+
+<script>
+// Hookah slider functionality
+let currentHookah = 0;
+const hookahs = ['red-forest', 'spicy-night', 'mint-breeze'];
+
+function nextHookah() {
+    currentHookah = (currentHookah + 1) % hookahs.length;
+    updateHookahDisplay();
+}
+
+function previousHookah() {
+    currentHookah = (currentHookah - 1 + hookahs.length) % hookahs.length;
+    updateHookahDisplay();
+}
+
+function updateHookahDisplay() {
+    const hookahItems = document.querySelectorAll('.menu_item');
+    const totalItems = hookahItems.length;
+    
+    // Create smooth one-way flow: left -> center -> right
+    const spacing = 220; // Distance between item centers
+    const centerOffset = 1; // Center position offset
+    
+    hookahItems.forEach((item, index) => {
+        // Calculate the position relative to current hookah
+        let relativeIndex = (index - currentHookah + totalItems) % totalItems;
+        
+        // Show all items for smooth flow effect
+        item.style.display = 'block';
+        item.style.position = 'absolute';
+        item.style.left = '50%';
+        item.style.top = '50%';
+        item.style.transformOrigin = 'center center';
+        item.style.transition = 'all 0.8s cubic-bezier(0.23, 1, 0.32, 1)'; // Smoother, longer transition
+        
+        // Calculate horizontal position - smooth one-way flow
+        let x = (relativeIndex - centerOffset) * spacing;
+        
+        // Calculate scale and opacity with smoother curves
+        let distanceFromCenter = Math.abs(relativeIndex - centerOffset);
+        let scale = Math.max(0.3, 1 - (distanceFromCenter * 0.15));
+        let opacity = Math.max(0.1, 1 - (distanceFromCenter * 0.2));
+        
+        // Center item gets special treatment - expand when in focus
+        if (relativeIndex === centerOffset) {
+            scale = 1.1; // Expand the center item
+            opacity = 1.0; // Full opacity
+        }
+        
+        // Apply smooth transform
+        item.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale})`;
+        item.style.opacity = opacity;
+        
+        // Z-index for layering (center item on top)
+        if (relativeIndex === centerOffset) {
+            item.style.zIndex = '10'; // Center item on top (in focus)
+        } else if (relativeIndex === centerOffset - 1 || relativeIndex === centerOffset + 1) {
+            item.style.zIndex = '8'; // Adjacent items
+        } else if (relativeIndex === centerOffset - 2 || relativeIndex === centerOffset + 2) {
+            item.style.zIndex = '6'; // Next adjacent
+        } else {
+            item.style.zIndex = '4'; // Far items
+        }
+    });
+}
+
+// Initialize the display when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    updateHookahDisplay();
+});
+
+// Hookah modal functionality
+function showHookahModal(hookahId) {
+    const modal = document.getElementById('hookahModal');
+    const modalTitle = document.getElementById('hookahModalTitle');
+    const modalDescription = document.getElementById('hookahModalDescription');
+    const modalImage = document.getElementById('hookahModalImage');
+    const modalPrice = document.getElementById('hookahModalPrice');
+    
+    const hookahData = {
+        'red-forest': {
+            title: 'RED FOREST',
+            description: 'Авторский микс с нотками лесных ягод, ванили и легкой мятой. Идеально для вечерних посиделок.',
+            price: '25 р.',
+            image: 'images and video for bar/product.jpg'
+        },
+        'spicy-night': {
+            title: 'SPICY NIGHT',
+            description: 'Смелый микс с экзотическими специями, цитрусовыми и карамелью. Для любителей ярких вкусов.',
+            price: '27 р.',
+            image: 'images and video for bar/product.jpg'
+        },
+        'mint-breeze': {
+            title: 'MINT BREEZE',
+            description: 'Освежающий микс с мятой, лаймом и легкими цветочными нотками. Отлично подходит для начала вечера.',
+            price: '23 р.',
+            image: 'images and video for bar/product.jpg'
+        }
+    };
+    
+    if (hookahData[hookahId]) {
+        modalTitle.textContent = hookahData[hookahId].title;
+        modalDescription.textContent = hookahData[hookahId].description;
+        modalImage.style.backgroundImage = `url('${hookahData[hookahId].image}')`;
+        modalPrice.textContent = hookahData[hookahId].price;
+        modal.style.display = 'block';
+    }
+}
+
+function closeHookahModal() {
+    const modal = document.getElementById('hookahModal');
+    modal.style.display = 'none';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('hookahModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+</script>
+
+</body>
+</html>

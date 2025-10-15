@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First - Hookah Bar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 107, 107, 0.1);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            border: 2px solid #ff6b6b;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .status {
+            background: linear-gradient(135deg, #00ff00, #00cc00);
+            color: #000;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 18px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            border: 2px solid transparent;
+        }
+        
+        .button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+            border-color: #fff;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .feature h3 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .feature p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            padding: 50px 0;
+            border-radius: 20px;
+            margin-top: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .url-display {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+        }
+        
+        .emoji {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 The First</h1>
+            <p class="subtitle">Hookah Bar - Professional Website</p>
+        </header>
+        
+        <div class="status">
+            ✅ WEBSITE SUCCESSFULLY DEPLOYED AND LIVE ON THE INTERNET!
+        </div>
+        
+        <div class="hero">
+            <h2>Welcome to The First</h2>
+            <p>Your professional hookah bar website is now live and accessible worldwide!</p>
+            <a href="pages/login.html" class="button">🔐 User Login</a>
+            <a href="pages/menu.html" class="button">📋 View Menu</a>
+            <a href="pages/about-us.html" class="button">ℹ️ About Us</a>
+            <a href="pages/contacts.html" class="button">📞 Contact Us</a>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="emoji">👥</div>
+                <h3>User Management</h3>
+                <p>Complete user registration and login system with secure authentication for your customers.</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">📅</div>
+                <h3>Table Booking</h3>
+                <p>Online table reservation system allowing customers to book tables easily and conveniently.</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">⭐</div>
+                <h3>Review System</h3>
+                <p>Customer review and feedback system to collect testimonials and improve your service.</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">📱</div>
+                <h3>Mobile Ready</h3>
+                <p>Fully responsive design that works perfectly on all devices - mobile, tablet, and desktop.</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">🎨</div>
+                <h3>Modern Design</h3>
+                <p>Beautiful, modern interface with smooth animations and professional visual effects.</p>
+            </div>
+            <div class="feature">
+                <div class="emoji">⚙️</div>
+                <h3>Admin Dashboard</h3>
+                <p>Complete admin panel for managing bookings, reviews, and monitoring your business.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <h3>🌐 Your Website is Now Publicly Available!</h3>
+            <p>Share this URL with your customers to start taking bookings online.</p>
+            <div class="url-display">
+                🌍 https://your-website-url.netlify.app
+            </div>
+            <p style="margin-top: 20px; font-size: 1.1rem;">
+                Your restaurant website is live and ready to serve customers worldwide!
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
+
+

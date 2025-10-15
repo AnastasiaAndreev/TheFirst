@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear All Data</title>
+</head>
+<body>
+    <h1>Clearing All Data...</h1>
+    <script>
+        // Clear all localStorage data
+        localStorage.clear();
+        
+        // Clear specific items
+        localStorage.removeItem('thefirst_user');
+        localStorage.removeItem('demo_users');
+        localStorage.removeItem('demo_bookings');
+        localStorage.removeItem('demo_reviews');
+        
+        console.log('All data cleared!');
+        alert('All saved data has been cleared!');
+        
+        // Redirect to home page
+        window.location.href = 'index.html';
+    </script>
+</body>
+</html>
+
+
